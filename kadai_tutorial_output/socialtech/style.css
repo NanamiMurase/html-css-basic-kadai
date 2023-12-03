@@ -1,0 +1,1399 @@
+  /* PC、スマホ共通スタイル */
+  body {
+    font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif;
+  }
+  
+  p {
+    font-size: 15px;
+  }
+
+/*================
+ PC用のスタイル 
+=================*/
+/* 画面幅が768px以上のとき PC用のスタイルを指定する */
+@media screen and (min-width: 768px) {
+
+  /* 横幅設定 */
+  /* divはもともとdisplay:block;なので縦並びになります。それ以外の選択肢の場合に横並びになります。 */
+
+  body {
+    max-width: 1080px;
+    min-width: 960px;
+    margin: 0 auto 0 auto;
+    /* body要素の幅が1080pxを超える場合、marginの左右をautoにして中央寄せにする */
+    /* body {margin: 0 auto 0 auto;}とbody {margin: 0 auto;}は上下で0、左右でautoを指定した中央寄せの書き方。 */
+  }
+
+    /* ヘッダー */
+    header {
+      display: flex;
+      /* コンテナにdisplay: flex;を指定するとFlexboxが利用できるようになります。 */
+      justify-content: space-between;
+      /* 一番左と一番右のアイテムを両端に配置し、残りのアイテムを均等な間隔で配置する */
+    }
+
+    /* ナビゲーションのレイアウト */
+    #nav-pc {
+      text-align: right;
+      font-size: 14px;
+      padding-top: 15px;
+    }
+
+  /* ナビゲーションのリンクの装飾設定 */
+  #nav-pc > a {
+    /* 直下の子要素のaタグにだけスタイルを適用させたい場合のセレクタの記述 */
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:hover {
+    color: #0d0d0d;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: #0d0d0d;
+  }
+
+     /* スマホ用ナビを非表示 */
+     #nav-sp,
+     #menu-sp {
+       display: none;
+     }
+
+    /* メインビジュアル*/
+  #main-visual {
+    position: relative;
+    height: 400px;
+  }
+
+  #main-message {
+    position: absolute;
+    /* 要素を絶対位置で配置するための指定 */
+    /* 親要素でposition: relative;を指定する */
+    top: 0;
+    left: 0;
+    /* top、leftプロパティにそれぞれ0を指定して、親要素の左上に配置する */
+    background-color: #2710d5;
+    color: #FFFFFF;
+    border-radius: 0 0 476px 0;
+    /* 「border-radius：左上 右上 右下 左下;」の順で角丸の半径を指定 */
+    max-width: 620px;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    /* z-indexで重なり順を指定し、画像の上に重なるようにする（メインビジュアルの重なり順は10番台を指定） */
+    /* 大きい数字を指定した要素が上に重なる */
+  }
+
+  #main-message > h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 100px 0 0 50px;
+  }
+
+  #main-message > p {
+    font-size: 28px;
+    margin: 0 0 0 50px;
+  }
+
+  #main-visual > img {
+    position: absolute;
+    /* 要素を絶対位置で配置するための指定 */
+    max-width: 620px;
+    border-radius: 476px 0 0 0;
+    /* 「border-radius：左上 右上 右下 左下;」の順で角丸の半径を指定 */
+    top: 0;
+    right: 0;
+    /* top、rightプロパティにそれぞれ0を指定して、親要素の右上に配置する */
+    z-index: 10;
+  }
+
+    /* 見出し */
+    h2 {
+      margin: 40px 0 0 0;
+    }
+    
+    h2::after {
+      content: url("images/line.png");
+      margin-left: 10px;
+    }
+    /* ::afterは、要素の直後にコンテンツ（文字や記号、アイコンなど）を追加する疑似要素です。 */
+    
+    h3 {
+      font-size: 27px;
+    }
+
+    /* ミッション */
+    #mission {
+      margin: 80px auto 80px auto;
+      /* 左右にautoを指定することで要素が中央寄せになる */
+      width: 100%;
+    }
+
+    #mission-flex {
+      width: 100%;
+      display: flex;
+      /* 表示方法（display）：flexを指定して、子要素を横並びにする */
+    }
+
+    #mission-flex > div {
+      width: 50%;
+      margin: 20px;
+    }
+    
+    #mission-photo {
+      width: 100%;
+    }
+    
+    #s2dgs {
+      margin-top: 50px;
+      width: 100%;
+    }
+
+  /* プロダクト */
+  #product {
+    background-color: #fafafa;
+    margin: 80px 0 80px 0;
+    padding: 10px 40px 0px 40px;
+  }
+  
+  /* 外枠 */
+  #product > div {
+    margin-top: 40px;
+    display: flex;
+  }
+
+    /* 左のカラム */
+    #product-left {
+      width: 50%;
+      margin-right: 20px;
+    }
+    
+    /* 右のカラム */
+    #product-right {
+      width: 50%;
+      margin-left: 20px;
+      margin-top: 80px;
+    }
+    
+    /* 画像＋説明の枠 */
+    #product-left > div {
+      position: relative;
+      height: 480px;
+      margin-right: 20px;
+    }
+    #product-right > div {
+      position: relative;
+      height: 480px;
+      margin-left: 20px;
+    }
+
+  /* 画像 親のdiv要素からはみ出さないように幅を調整*/
+  .product-photo {
+    width: 100%;
+  }
+
+    /* 説明文の枠 */
+    .product-explain {
+      background-color: #ffffff;
+      position: absolute;
+      left: 0;
+      top: 280px;
+       /* position：absolute;を指定して絶対位置で配置する */
+       /* 画像とテキストを重ねるには、絶対位置（position:absolute）で指定する */
+      margin: 0 40px 0 40px;
+      padding: 20px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+      /* 値は影の右方向の長さ、影の下方向の長さ、影のぼけ具合、影の色と透明度の順に書きます。 */
+    }
+    
+    /* 説明文の英語 */
+    .product-explain > span {
+      color: #2710d5;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0;
+    }
+
+      /* 説明文の見出し */
+  .product-explain > h3 {
+    font-size: 20px;
+    margin: 5px 0 5px 0;
+  }
+  
+  /* 説明文 */
+  .product-explain > p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  /* 「もっとみる」ボタン */
+  #product-more {
+    margin: 0 auto -42px auto;
+    /* marginにマイナスの値を指定すると、親要素の外にはみ出す（例：margin: 0 auto -42px auto;） */
+  }
+
+    /* ABOUT US */
+    #aboutus {
+      margin: 80px auto 80px auto;
+    }
+    
+    /* 3つの組織文化と画像を入れる枠 */
+    #aboutus > div {
+      display: flex;
+    }
+
+   /* ABOUT US画像 */
+  .culture-img {
+    width: 100%;
+    align-self: flex-start;
+    /* Flexbox（フレックスボックス）内の要素はalign-self: flex-start;を指定すると上寄せになる */
+  }
+  
+  .culture-img2 {
+    margin-top: 50px;
+    width: 100%;
+  }
+
+    /* 3つの組織文化の表 */
+    .culture-table {
+      margin-right: 50px;
+    }
+
+      /* 番号 */
+  .culture-num {
+    font-size: 80px;
+    color: #2710d5;
+    margin: 0 20px 0 0;
+  }
+  
+  /* 組織文化英語 */
+  .culture-en {
+    color: #2710d5;
+    font-weight: bold;
+    font-size: 24px;
+    display: block;
+  }
+  
+  /* 組織文化日本語 */
+  .culture-jp {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* 説明文 */
+  .culture-description {
+    margin: 0;
+  }
+
+    /* ビジョン */
+    #vision {
+      margin: 80px auto 80px auto;
+    }
+    
+    /* セクション内の外枠 */
+    #vision > div {
+      width: 100%;
+      display: flex;
+      /* 子要素を横並びにするため、flexを指定する */
+      justify-content: space-between;
+      /* 横方向の揃え方（justify-content）：space-betweenを指定する（一番左と一番右の子要素を両端に配置し、残りの子要素を均等な間隔で配置する） */
+      flex-wrap: wrap;
+      /* 折り返し（flex-wrap）：wrapを指定する（幅が足りなくなったら上から下に折り返しする） */
+    }
+    
+    /* 7つの行動指針の枠 */
+    .vision-box {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 30px;
+      position: relative;
+      /* 配置（position）：relativeを指定し、現在の位置を基準に相対的な位置に配置する */
+    }
+
+    .vision-box > img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      /* absolute（絶対位置）を指定し、topとleftに0を指定することで親要素の左上に配置する */
+      top: 0;
+      left: 0;
+      z-index: 30;
+      /* 30を指定し、テキストが上に重なるようにする（z-indexの値が大きいほど上に重なる） */
+    }
+    
+    .vision-box > span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 31;
+      margin-right: 20px;
+    }
+    
+    .vision-box > span > h4 {
+      color: #2710d5;
+      font-size: 19px;
+      margin: 80px 0 0 0;
+    }
+
+    /* ::first-letterは、要素の最初の文字を装飾する疑似要素です。 */
+    .vision-box > span > h4::first-letter {
+      font-size: 40px;
+    }
+    
+    .vision-box > span > h5 {
+      font-size: 20px;
+      margin: 0 0 0 0;
+    }
+    
+    .vision-box > span > p {
+      margin: 10px 0 0 0;
+    }
+
+  /* 会社概要 */
+  #company {
+    margin: 80px auto 80px auto;
+  }
+
+  #company-table {
+    width: 100%;
+  }
+ 
+  .tableheader {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 100px;
+  }
+ 
+  .tableheader-first {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #2710d5;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width: 100px;
+  }
+ 
+  .cell {
+    padding: 30px;
+    border-bottom-color: #ececec;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+ 
+  .cell-first {
+    padding: 30px;
+    border-bottom-color: #ececec;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #ececec;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+
+  #company > iframe {
+    width: 100%;
+    height: 368px;
+    margin-top: 40px;
+  }
+
+    /* お問い合わせ */
+    #contact {
+      margin: 80px auto 80px auto;
+    }
+    
+    /* 外枠 */
+    #contact > form > div {
+      display: flex;
+      /* 表示方法（display）：Flexbox（フレックスボックス）を利用するため、flexを指定する */
+      flex-direction: row;
+      /* 並び順 （flex-direction）：子要素を左から右に配置する（row） */
+      flex-wrap: wrap;
+      /* 折り返し（flex-wrap）：幅が足りなくなったら上から下に折り返しする（wrap） */
+      padding-bottom: 30px;
+    }
+
+  /* 左列の見出し */
+  .contact-heading {
+    width: 240px;
+    align-self: center;
+  }
+  /* 見出しのラベル */
+  .contact-label {
+    font-weight: bold;
+  }
+  /* 必須 */
+  .contact-span {
+    color: #ce2222;
+    margin: 0 0 0 20px;
+    font-weight: bold;
+  }
+
+    /* テキストボックス */
+    .contact-textbox {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom-width: 1px;
+      border-bottom-color: #707070;
+      border-bottom-style: solid;
+      background-color: #fafafa;
+      width: 400px;
+      height: 56px;
+    }
+    /* お問い合わせ内容のテキストエリア */
+    .contact-textarea {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom-width: 1px;
+      border-bottom-color: #707070;
+      border-bottom-style: solid;
+      background-color: #fafafa;
+      width: 400px;
+      height: 200px;
+    }
+
+  /* 個人情報の取り扱い */
+  details {
+    width: 700px;
+  }
+  details > div {
+    background-color: #fafafa;
+    padding: 20px;
+  }
+
+  details > div > span {
+    font-weight: bold;
+  }
+
+    /* フッター */
+    footer {
+      background-color: #0d0d0d;
+      text-align: center;
+      padding: 80px 80px 30px 80px;
+    }
+    
+    #footer-logo {
+      margin-bottom: 30px;
+    }
+
+    #footer-link {
+      margin-bottom: 50px;
+    }
+    #footer-link > a {
+      text-decoration: none;
+      margin: 10px;
+    }
+    #footer-link > a:link {
+      color: #ffffff;
+    }
+    #footer-link > a:visited {
+      color: #ffffff;
+    }
+    #footer-link > a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    #footer-link > a:active {
+      color: #ffffff;
+    }
+
+    #sns-footer {
+      text-align: left;
+      width: 100%;
+    }
+    /* spanのようなdisplay: inline;の要素を右寄せにするには、親要素に対してtext-align: right;を指定します。
+    また、 margin-right: 0;と margin-left: auto;を指定すれば、display: block;の要素であれば右寄せになります。
+    ただし、この方法はdisplay: inline;の要素には使えません。 */
+   
+    #sns-footer > a {
+      margin-right: 30px;
+    }
+    
+    #copyright {
+      color: #ffffff;
+      float: right;
+      /* floatプロパティで要素を右寄せ、左寄せにできる */
+    }
+
+
+   /* mission.html用スタイル */
+   /* ミッションのメインビジュアル */
+   #mission-main {
+    height: 496px;
+    width: 100%;
+    background-image: url("images/mission/mission-main.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    /* background-position-yは、背景画像のy軸（縦方向）＊垂直方向＊の位置を指定するプロパティです。
+       値にcenterを指定することで、背景画像を縦方向の中央に配置できます。 
+       background-position-xは、＊水平方向＊の位置を調整するプロパティ*/
+
+/* background-sizeプロパティ:値の指定は横幅・縦幅の順番で指定します。縦幅を208pxにするにはauto 208pxと記述 */
+
+  }
+
+  #mission-title {
+    background-color: #2710d5;
+    width: 368px;
+    color: #ffffff;
+    height: 496px;
+    border-radius: 0 248px 248px 0;
+    /* 値の指定は左上・右上・右下・左下の順番で指定します。＊時計回り */
+    position: relative;
+  }
+
+  #mission-title > h1 {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    font-size: 80px;
+  }
+
+  #mission-title > span {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    font-size: 26px;
+  }
+
+  #mission-title > div {
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    font-size: 16px;
+  }
+
+  #mission-s2dgs {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .mission-h2 {
+    color: #2710d5;
+    font-size: 40px;
+  }
+
+  .mission-h2::after {
+    content: none;
+  /* h2に指定している青ラインをここでは表示させない */
+  }
+
+  #mission-5goals {
+    margin: 20px;
+    display: flex;
+    /* 表示方法（display）：flexを指定し、要素をFlexbox化する */
+  }
+
+  #mission-5goals > div {
+    flex-grow: 1;
+    /* アイテム（子要素）がどれくらい伸びるか（flex-grow）：1を指定し、コンテナ（親要素）の幅いっぱいに引き延ばす */
+    padding: 20px;
+  }
+
+  #mission-5goals > div > div {
+    margin-bottom: 40px;
+  }
+
+  .fivegoals-image-right {
+    float: right;
+    margin: 20px;
+  }
+
+  .fivegoals-image-left {
+    float: left;
+    margin: 20px;
+  }
+
+  .fivegoals-number {
+    color: #2710d5;
+    font-size: 48px;
+    margin: 0;
+  }
+
+  .fivegoals-h3 {
+    font-size: 28px;
+    margin: 0;
+  }
+
+  .fivegoals-p {
+    margin: 0;
+  }
+
+   /* プロダクトページ */
+   #product-main {
+    height: 496px;
+    width: 100%;
+    background-image: url("images/product/product-main.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+  }
+
+  #product-title {
+    background-color: #2710d5;
+    width: 368px;
+    color: #ffffff;
+    height: 496px;
+    border-radius: 0 248px 248px 0;
+    position: relative;
+    /* 配置（position）：relativeを指定し、親要素（#product-title）を基点に子要素（#product-title > h1 等）を配置する */
+  }
+
+  #product-title > h1 {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    font-size: 80px;
+  }
+
+  #product-title > span {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    font-size: 26px;
+  }
+
+  #product-title > div {
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    font-size: 16px;
+  }
+
+   /* セクション1 */
+   .product-section1 {
+     position: relative;
+     margin: 20px;
+     height: 340px;
+   }
+ 
+   .product-section1 > img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 450px;
+     margin: 0 40px 30px 0;
+     border-radius: 0 432px 0 0;
+   }
+ 
+   .product-section1 > div {
+     position: absolute;
+     top: 0;
+     left: 480px;
+   }
+ 
+   /* セクション2 */
+   .product-section2 {
+     position: relative;
+     /* 配置（position）：relativeを指定し、子要素を絶対位置で配置できるようにする */
+     margin: 20px;
+     height: 340px;
+   }
+ 
+   .product-section2 > img {
+     position: absolute;
+     /* position: relative;（親要素）とposition: absolute;（子要素）を組み合わせることで、子要素を絶対位置で配置する */
+     top: 0;
+     right: 0;
+     width: 450px;
+     margin: 0 0 30px 40px;
+     border-radius: 432px 0 0 0;
+   }
+ 
+   .product-section2 > div {
+     width: 500px;
+     position: absolute;
+     top: 0;
+     left: 0;
+   }
+ 
+   .product-h2 {
+     color: #2710d5;
+     font-size: 24px;
+     margin: 0;
+   }
+ 
+   .product-h3 {
+     font-size: 28px;
+     margin: 0;
+   }
+
+
+}  /* 13行目の@media screenの閉じ} ここまでPC用のCSS */
+
+
+  /*====================
+  スマートフォン用のスタイル
+  =====================*/
+  /* 画面幅が767px以下のとき スマートフォン用のスタイルを指定する */
+  @media screen and (max-width: 767px) {
+
+    body {
+      min-width: 375px;
+      margin: 0;
+    }
+  
+    /* PC用ナビゲーション非表示 */
+    #nav-pc {
+      display: none;
+    }
+  
+    /* ハンバーガーメニュー */
+    #menu-sp {
+      float: right;
+      padding: 0;
+    }
+
+   /* スマホ用ナビゲーションの表示切替 */
+   /* 初期状態、レイアウトと非表示設定 */
+   #nav-sp {
+    background-color: #2710d5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 100;
+  }
+
+     /* ×ボタン */
+     #close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  
+    /* ナビゲーションメニュー用ロゴ */
+    #logo-sp {
+      margin: 80px 0 30px 20px;
+    }
+
+  /* ナビゲーションのリンクの装飾設定 */
+   #nav-sp > a {
+    display: block;
+    /* 表示方法（display）：blockを指定し、縦並びにする */
+  }
+
+  #nav-sp > a:link {
+    color: #ffffff;
+  }
+  #nav-sp > a:visited {
+    color: #ffffff;
+  }
+  #nav-sp > a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  #nav-sp > a:active {
+    color: #ffffff;
+  }
+
+  #nav-sp > .menu {
+    text-decoration: none;
+    display: block;
+    margin: 0 20px 0 20px;
+    height: 44px;
+    font-size: 16px;
+    background-image: url("images/arrow.png");
+    /* 背景画像（background-image）：url("images/arrow.png")を指定し、arrow.pngをリンクの背景として表示する */
+    background-repeat: no-repeat;
+    background-position: right top;
+    /* 背景の位置（background-position）：right topを指定し、右上に配置する */
+  }
+  
+  #sns {
+    position: absolute;
+    /* 配置（position）：絶対位置（absolute）を指定し、bottomとleftに20pxを指定することで親要素の左下を基準に配置する */
+    bottom: 20px;
+    left: 20px;
+  }
+  #sns > a {
+    margin-right: 30px;
+  }
+
+     /* メインビジュアル */
+     #main-visual {
+      position: relative;
+      height: 470px;
+      width: 100%;
+      overflow: hidden;
+      /* overflowプロパティとは、「領域内に入りきらない要素をどのように表示するか」を指定するプロパティです。 */
+      /* hiddenという値を指定すると、はみ出た部分が非表示になります。 */
+    }
+
+    #main-visual > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #2710d5;
+      color: white;
+      border-radius: 0 0 476px 0;
+      text-align: center;
+      height: 280px;
+      width: 100%;
+      z-index: 11;
+    }
+    #main-visual > div > h1 {
+      font-size: 28px;
+      margin: 90px 0 0 0;
+    }
+  
+    #main-visual > div > p {
+      margin: 0;
+    }
+  
+    #main-visual > img {
+      width: 100%;
+      border-radius: 476px 0 0 0;
+      z-index: 10;
+      position: absolute;
+      /* 配置（position）：絶対位置（absolute）を指定し、bottomとrightに0を指定することで親要素の右下に配置する */
+      bottom: 0;
+      right: 0;
+    }
+
+         /* 見出し */
+         h2::after {
+          content: url("images/line.png");
+          /* 追加する内容（content）：url("images/line.png")を指定して、青線の画像を追加する */
+          margin-left: 10px;
+        }
+    
+        h3 {
+          font-size: 24px;
+          margin: 10px 0 0 0;
+        }
+
+   /* ミッション */
+   #mission {
+    margin: 20px;
+  }
+
+  #mission-photo {
+    width: 100%;
+  }
+
+  #s2dgs {
+    width: 100%;
+  }
+
+     /* プロダクト */
+     #product {
+      background-color: #fafafa;
+      padding-top: 10px;
+    }
+  
+    #product h2 {
+      margin-left: 20px;
+    }
+    /* 外枠 */
+    /* 左右のカラム　スマホでは縦並び */
+    #product-left,
+    #product-right {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+
+  /* 画像＋説明の枠 */
+   #product-left > div,
+   #product-right > div {
+     position: relative;
+     height: 540px;
+   }
+ 
+   /* 説明文の枠 */
+   .product-explain {
+     background-color: #ffffff;
+     position: absolute;
+     /* 配置（position）：絶対位置（absolute）を指定し、leftに0、bottomに50pxを指定することで親要素の左下を基準に配置する */
+     left: 0;
+     bottom: 50px;
+     padding: 20px;
+     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+   }
+ 
+   .product-explain > span {
+     color: #2710d5;
+     font-weight: bold;
+     font-size: 16px;
+     margin: 0px;
+   }
+ 
+   .product-explain > h3 {
+     margin: 10px 0 10px 0;
+   }
+
+   /* 画像 */
+   .product-photo {
+    width: 100%;
+  }
+  /* widthに100%を指定することで、見切れていた画像を親要素の幅に合わせて調整します。 */
+
+  #product-more > img {
+    margin: 0 0 -42px 20px;
+      /* 「もっとみる」ボタンの下のmarginの値を-42にすることで、親要素からあえて外にはみ出させています。 */
+  }   
+
+   /* ABOUT US */
+   #aboutus {
+    margin: 80px 20px 80px 20px;
+  }
+
+  /* Flexboxのアイテム（子要素）の並び順を明示的に決めるには、まずコンテナ（親要素）にflex-directionプロパティを指定。
+  続いて、その中のアイテムにorderプロパティで並び順を指定すればOKです。 */
+
+  #aboutus > div {
+    display: flex;
+    flex-direction: column;
+    /* アイテム（子要素）の並び順（flex-direction）：columnを指定し、画像と表を上から下に配置する */
+  }
+
+  .culture-table {
+    width: 100%;
+    padding-right: 20px;
+    order: 2;
+    /* 並び順（order）：2を指定し、画像の後に配置する */
+  }
+  .culture-img {
+    width: 100%;
+    order: 1;
+    /* 並び順（order）：1を指定し、表の前に配置する */
+  }
+
+  .culture-img2 {
+    width: 100%;
+  }
+
+   .culture-num {
+     font-size: 80px;
+     color: #2710d5;
+   }
+ 
+   .culture-en {
+     color: #2710d5;
+     font-weight: bold;
+     font-size: 24px;
+     display: block;
+   }
+ 
+   .culture-jp {
+     display: block;
+   }
+ 
+   .culture-description {
+     margin: 0;
+   }
+
+   /* ビジョン */
+   #vision {
+    margin: 80px 20px 80px 20px;
+  }
+
+  .vision-box {
+    width: 300px;
+    height: 300px;
+    /* 幅と高さ（width、height）：両者ともに300pxを指定し、正方形にする */
+    margin-bottom: 30px;
+    position: relative;
+    /* 配置（position）：relativeを指定し、子要素を絶対位置で配置できるようにする */
+  }
+
+  .vision-box > img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    /* 配置（position）：絶対位置（absolute）を指定し、topとleftに0を指定することで親要素の左上に配置する */
+    top: 0;
+    left: 0;
+    z-index: 30;
+    /* 重なり順（z-index）：30を指定し、テキストが上に重なるようにする */
+  }
+
+  .vision-box > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 31;
+    margin-right: 20px;
+  }
+
+  .vision-box > span > h4 {
+    color: #2710d5;
+    font-size: 19px;
+    margin: 60px 0 0 0;
+  }
+
+  .vision-box > span > h5 {
+    font-size: 20px;
+    margin: 0 0 0 0;
+  }
+  .vision-box > span > p {
+    margin: 10px 0 0 0;
+  }
+
+   /* 会社概要 */
+   #company {
+    margin: 0 20px 0 20px;
+  }
+
+  #company > h3 {
+    margin-bottom: 20px;
+  }
+
+  #company > table {
+    width: 100%;
+  }
+
+  .tableheader-first {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #2710d5;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width: 50px;
+  }
+  .tableheader {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 50px;
+  }
+
+  .cell {
+    padding: 20px;
+    border-bottom-color: #ececec;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+  .cell-first {
+    padding: 20px;
+    border-bottom-color: #ececec;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #ececec;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+
+  #company > iframe {
+    width: 100%;
+    height: 240px;
+    margin: 40px 0 0 0;
+  }
+
+   /* お問い合わせ */
+   #contact {
+    margin: 80px 20px 80px 20px;
+  }
+
+  #contact > h3 {
+    margin-bottom: 20px;
+  }
+
+  #contact > form > div {
+    margin-bottom: 20px;
+  }
+
+  .contact-heading {
+    margin-bottom: 20px;
+  }
+
+   /* ラベル */
+   .contact-label {
+    font-weight: bold;
+  }
+
+  /* 必須 */
+  .contact-span {
+    color: #ce2222;
+    margin: 0 0 0 20px;
+    font-weight: bold;
+  }
+
+  .contact-textbox {
+    height: 56px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: #fafafa;
+    border-bottom-color: #707070;
+    border-bottom-width: 1px;
+    border-style: solid;
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .contact-textarea {
+    height: 150px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: #fafafa;
+    width: 100%;
+  }
+
+  .radiobutton {
+    margin-bottom: 20px;
+  }
+
+  /* 隣接する要素にCSSを適用したい場合は「+」を使用します。 */
+  .radiobutton + label::after {
+    content: "\A";
+    /* 「\A」という文字は改行 */
+    white-space: pre;
+    /* CSSで改行するには、content: "\A";とwhite-space: pre;を同時に指定します。 */
+    /* 疑似要素の::afterを使ってcontent: "\A";を指定することで、要素の直後に改行を追加できます。 */
+
+    /* バックスラッシュはキーボードの「￥」キー（Macの場合はoptionキーを押しながら「￥」キー）で入力できます。 */
+  }
+
+     /* フッター */
+     footer {
+      background-color: #0d0d0d;
+      padding: 30px 20px 50px 20px;
+    }
+  
+    #footer-logo {
+      margin-bottom: 30px;
+    }
+
+    #footer-link {
+      margin-bottom: 50px;
+    }
+
+    #footer-link > a {
+      text-decoration: none;
+      margin: 0 20px 30px 0;
+      display: block;
+      /* ハイパーリンクにdisplay: block;を指定したため、縦並び */
+      background-image: url("images/arrow.png");
+      background-repeat: no-repeat;
+      background-position: right top;
+    }
+
+    #footer-link > a:link {
+      color: #ffffff;
+    }
+    #footer-link > a:visited {
+      color: #ffffff;
+    }
+    #footer-link > a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    #footer-link > a:active {
+      color: #ffffff;
+    }
+
+   #sns-footer > a {
+       margin-right: 30px;
+   }
+ 
+   #copyright {
+       font-size: 12px;
+       display: block;
+       margin-top: 30px;
+       color: #ffffff;
+   }
+
+   /* mission.html用スタイル */
+   /* ミッションのメインビジュアル */
+   #mission-main {
+    height: 256px;
+    width: 100%;
+    background-image: url("images/mission/mission-main.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: auto 208px;
+  }
+
+  #mission-title {
+    background-color: #2710d5;
+    width: 136px;
+    color: #ffffff;
+    height: 256px;
+    border-radius: 0 248px 248px 0;
+    position: relative;
+  }
+  #mission-title > h1 {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 40px;
+  }
+
+  #mission-title > span {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    font-size: 18px;
+  }
+
+  #mission-title > div {
+    position: absolute;
+    top: 180px;
+    left: 20px;
+    font-size: 13px;
+  }
+
+   /* ミッションページ　S2DGSの設定 */
+   #mission-s2dgs {
+    margin: 20px;
+  }
+
+  .mission-h2 {
+    color: #2710d5;
+    font-size: 38px;
+    margin: 0px;
+  }
+
+  .mission-h2::after {
+    content: none;
+  }
+
+  #mission-s2dgs > img {
+    width: 100%;
+  }
+
+   /* ミッションページ　5Goalsの設定 */
+   #mission-5goals {
+    margin: 20px;
+  }
+
+  #mission-5goals > div > div {
+    margin-bottom: 40px;
+  }
+
+  #s2dgs-image {
+    width: 100%;
+  }
+  .fivegoals-image-right {
+    margin: 20px auto 20px auto;
+    display: block;
+    /* 表示方法（display）：blockを指定して、要素を縦並びにする */
+  }
+
+  .fivegoals-image-left {
+    margin: 20px auto 20px auto;
+    display: block;
+  }
+
+  .fivegoals-number {
+    color: #2710d5;
+    font-size: 48px;
+    margin: 0;
+  }
+
+  .fivegoals-h3 {
+    font-size: 28px;
+    margin: 0;
+  }
+  .fivegoals-p {
+    margin: 0;
+  }
+
+  /* PC用レイアウトと大きく異なるのは、「Flexboxを利用しない」という点です。
+  スマートフォンは画面幅が狭いため、セクション内の要素が縦並びになるようにレイアウトを変更します。 */
+
+  /* rgbの値はred, green, blueの順番で指定します。次に、rgbaでalpha（透明度）を指定してあるものは、色が薄くなる。
+  background-color: blue;／background-color: rgba (0, 0, 255, .5); */
+
+   /* プロダクトページ */
+   #product-main {
+    height: 256px;
+    width: 100%;
+    background-image: url("images/product/product-main.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: auto 208px;
+  }
+  #product-title {
+    background-color: #2710d5;
+    width: 136px;
+    color: #ffffff;
+    height: 256px;
+    border-radius: 0 248px 248px 0;
+    position: relative;
+  }
+  #product-title > h1 {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 40px;
+  }
+  #product-title > span {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    font-size: 18px;
+  }
+  #product-title > div {
+    position: absolute;
+    top: 180px;
+    left: 20px;
+    font-size: 13px;
+  }
+
+  .product-section1 {
+    margin: 20px;
+  }
+
+  .product-section1 > img {
+    width: 100%;
+    border-radius: 0 300px 0 0;
+  }
+  
+  .product-section2 {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    /* アイテム（子要素）の並び順（flex-direction）：columnを指定し、画像とテキストを上から下に配置する */
+  }
+
+  .product-section2 > img {
+    order: 1;
+    width: 100%;
+    border-radius: 300px 0 0 0;
+  }
+
+  .product-section2 > div {
+    order: 2;
+    /* Flexboxのorderプロパティを使えば要素の表示順を任意に指定できる */
+    /* orderプロパティを使うには、親要素にdisplay: flex;を指定してFlexbox化する必要がある */
+  }
+
+  .product-h2 {
+    color: #2710d5;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .product-h3 {
+    font-size: 28px;
+    margin: 0;
+  }
+
+
+
+  
+  }/* スマートフォン用の@media screen */
+
+
